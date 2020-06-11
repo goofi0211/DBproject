@@ -1,0 +1,208 @@
+{%extends "shop/base.html"%}
+{%load static%}
+{%block title%}employee{%endblock%}
+{%block main%}
+
+    <div class="hero-2" style="background-image: url('/static/images/m2.jpg');">
+     <div class="container">
+        <div class="row justify-content-center text-center align-items-center">
+          <div class="col-md-8">
+            <span class="sub-title">Get In Touch</span>
+            <h2>OUR Employee</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="site-section py-5 custom-border-bottom" data-aos="      fade">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-6">
+            <div class="block-16">
+              <figure>
+                <img src="{% static 'images/person_1.jpg'%}" alt="Image placeholder" class="img-fluid">
+    
+              </figure>
+            </div>
+          </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-5">
+    
+    
+            <div class="site-section-heading pt-3 mb-4">
+              <h2 class="text-black font-heading-serif">
+              Chairman</h2>
+            </div>
+            <p>Rerum quis soluta, esse, cupiditate voluptate ipsum? Sunt unde eos vitae suscipit harum eligendi reprehenderit, illo eaque sit!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus consequuntur hic quaerat cupiditate tempore temporibus nulla at eum!</p>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div class="site-section py-5 bg-light custom-border-bottom" data-aos="fade">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 order-md-2">
+            <div class="block-16">
+              <figure>
+                <img src="{% static 'images/person_2.jpg'%}" alt="Image placeholder" class="img-fluid ">
+    
+              </figure>
+            </div>
+          </div>
+          <div class="col-md-5 mr-auto">
+    
+    
+            <div class="site-section-heading pt-3 mb-4">
+              <h2 class="text-black font-heading-serif">Chief Information Officer</h2>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus consequuntur hic quaerat cupiditate tempore temporibus nulla at eum!</p>
+            <p>Magni debitis minima ipsam, itaque nam eligendi iusto? Adipisci blanditiis itaque ipsam cupiditate architecto, dolore saepe placeat culpa.</p>
+            
+            
+    
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="site-section py-5 custom-border-bottom" data-aos="      fade">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-6">
+            <div class="block-16">
+              <figure>
+                <img src="{% static 'images/person_3.jpg'%}" alt="Image placeholder" class="img-fluid">
+    
+              </figure>
+            </div>
+          </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-5">
+    
+    
+            <div class="site-section-heading pt-3 mb-4">
+              <h2 class="text-black font-heading-serif">Accountant</h2>
+            </div>
+            <p>Rerum quis soluta, esse, cupiditate voluptate ipsum? Sunt unde eos vitae suscipit harum eligendi reprehenderit, illo eaque sit!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus consequuntur hic quaerat cupiditate tempore temporibus nulla at eum!</p>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+<!------------button mode-------------------->
+    <form method="post"> {% csrf_token %}
+      <div class="site-section bg-light">
+      <div class="container">
+        <div class="col-lg-12">
+          <input type="submit" name='count' value="count" class="btn btn-primary py-3 px-5">
+          <input type="submit" name='sum' value="sum" class="btn btn-primary py-3 px-5">
+          <input type="submit" name='max' value="max" class="btn btn-primary py-3 px-5">
+          <input type="submit" name='min' value="min" class="btn btn-primary py-3 px-5">
+          <input type="submit" name='avg' value="avg" class="btn btn-primary py-3 px-5">
+        </div>
+      </div>
+      </div>
+    </form>
+
+    <br>
+
+      <div class="container">
+        <div class="row">
+        {{data}}
+      </div>
+      </div>
+
+
+    <div class="site-section bg-light">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-12">
+            <div class="section-title mb-5">
+              <h2>input SQL</h2>
+            </div>
+            <form method="post">{% csrf_token %}
+              
+                  <div class="row">
+                      <div class="col-md-12 form-group">
+                          <label for="message">SQL</label>
+                          <textarea name="my_sql" id="message" cols="30" rows="10" class="form-control"></textarea>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-12">
+                          <input type="submit" value="execute" class="btn btn-primary py-3 px-5">
+                      </div>
+                  </div>
+              
+            </form>
+          </div>
+          
+        </div>
+
+        
+      </div>
+    </div>
+
+      {%for item in items%}
+            <li>
+            {{item}}
+            </li>
+      {% endfor %}
+      
+
+  <!------------------------------------------------>
+    <div class="site-section bg-dark">
+      <div class="container">
+        <div class="row">
+      {%for employee in employees%}
+          {%if forloop.first%}
+          <table>
+            <tr bgcolor='#cccccc'>
+              <td width=250>name</td>
+              <td width=250>salary</td>
+              <td width=250>job_title</td>
+              <td width=250>tell</td>
+              <td width=250>mail</td>
+              <td width=250>published_date</td>
+            </tr>
+          {%endif%}
+          <tr bgcolor='{%cycle "#ffccff" "#ccffcc"}'>
+              <td width=250>{{employee.name}}</td>
+              <td width=250>{{employee.salary}}</td>
+              <td width=250>{{employee.job_title}}</td>
+              <td width=250>{{employee.tell}}</td>
+              <td width=250>{{employee.mail}}</td>
+              <td width=250>{{employee.published_date}}</td>
+            </tr>
+          {%if forloop.last%}
+          </table>
+          {%endif%}
+          {%endfor%}
+        </div>
+        </div>
+        </div>
+
+
+{%endblock%}
+
+
+
+    
+    
+
+  <!-- .site-wrap -->
+
+
+  <!-- loader -->
+
+</body>
+
+</html>

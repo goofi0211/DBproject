@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RS shop</title>
+    <h1 align="center">RS 的 Django 測試</h1>
+</head>
+<body>
+    <form method="POST"> {% csrf_token %}
+    <!-- 從 context 拿出 form -->
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+    </form>
+</body>
+
+<br>
+<br>
+
+<footer>
+    <div align="center">Made by RS, 2020-02-07</div>
+</footer>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>my shop</title>
+    <h1 align="center">Django SQL語法測試</h1>
+</head>
+<body>
+
+    <form method="POST"> {% csrf_token %}
+    <!-- 從 context 拿出 form -->
+    <select name="sql" id="sql">
+        <option value="1">SELECT * FROM shop_commodity</option>
+        <option value="2">UPDATE shop_commodity SET price=50 WHERE name="豆漿"</option>
+        <option value="3">insert into shop_commodity(name,price,origin,stock)values('tai',120,'taiwan',100)</option>
+        <option value="4">delete from shop_commodity where name='tai'</option>
+        <option value="5">select name,max(price) from shop_commodity</option>
+    </select>
+    <input id='my_sql' type ='text' name='my_sql'>
+    <input type="submit" value="Submit">
+    </form>
+</body>
+    {%for item in items%}
+    <li>
+        {{item}}
+    </li>
+    {% endfor %}
+<br>
+<br>
+
+<footer>
+    <div align="center">Made by Terry , 2020-05-21</div>
+</footer>
+
+</html>

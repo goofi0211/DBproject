@@ -1,0 +1,70 @@
+{%extends "shop/base.html"%}
+{%load static%}
+{%block title%}distributor{%endblock%}
+{%block main%}
+
+    <div class="hero-2" style="background-image: url('/static/images/m3.jpg');">
+     <div class="container">
+        <div class="row justify-content-center text-center align-items-center">
+          <div class="col-md-8">
+            <span class="sub-title">Get In Touch</span>
+            <h2>{{distributor}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+<!----------------insert distributor-------------------->
+
+
+
+          <!---------------show the sales_table------------>
+    <div class="site-section bg-light">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-12">
+          {%for s in sales%}
+          {%if forloop.first%}
+          <table>
+            <tr bgcolor='#cccccc'>
+              <td width=250>seller</td>
+              <td width=250>commodity</td>
+              <td width=250>customer</td>
+              <td width=250>profit</td>
+              <td width=250>date</td>
+            </tr>
+          {%endif%}
+          <tr bgcolor='{%cycle "#ffccff" "#ccffcc"}'>
+              <td width=250>{{s.seller}}</td>
+              <td width=250>{{s.commodity}}</td>
+              <td width=250>{{s.customer}}</td>
+              <td width=250>{{s.profit}}</td>
+              <td width=250>{{s.date}}</td>
+            </tr>
+          {%if forloop.last%}
+          </table>
+          {%endif%}
+          {%endfor%}
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+ 
+
+{%endblock%}
+
+
+
+    
+    
+
+  <!-- .site-wrap -->
+
+
+  <!-- loader -->
+
+</body>
+
+</html>
